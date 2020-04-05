@@ -1,0 +1,20 @@
+level_2_1 : 다음 큰 숫자 ( 2진수 )
+# 2진수 변환 함수 -> 복습 해보기
+
+완주하지 못한 선수
+# sort를 통한 속도 향상 
+# hash함수 사용
+
+체육복
+# Greedy 사용
+# _lost = [x for x in lost if x not in reserve] 식의 제외처리
+# lost = list(set(lost)-set(emptylist)) 식의 중복 제거.
+
+모의고사
+## enumerate 를 이용한 index 이용
+## 숏코딩을 위한 코드 정리
+
+타겟넘버
+## 트리 구조 완전 간단 코딩
+## DFS 개념 파악하기.
+## 1. 재귀 2. 단순 2중 for문
