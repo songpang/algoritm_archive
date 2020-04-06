@@ -1,0 +1,69 @@
+반올림 방법
+a=1.12371234
+print(format(a, "1.3f"))
+
+### 1.124
+
+*[1,2,3,4] 출력하면
+1 2 3 4 출력됨.
+
+룩업 테이블
+print(['><'[a<b],'=='][a==b])
+
+'룩업테이블'[조건식넣기]
+
+print(''.join(list)) 
+리스트 문자열로 변환.
+
+딕셔너리에서 키값이 중복되면 마지막값을 쓴다.
+print(A,B,C) -> sep이 각각 사이에 들어갈 문자.
+                        end가 print가 끝나고 들어갈 문자
+
+클래스 안에 변수 선언하면 모든 인스턴스가 공유
+인스턴스 변수 생성하려면 
+클래스 안 -> 함수 안 -> self.변수이름 해야함
+
+upper() 대문자
+lower() 소문자
+ 
+pineapple is yummy 에서 apple 찾으려면 find 메소드 사용. index도 가능
+
+sorted -> 리턴값이 정렬
+sort -> 리스트를 아예 정렬.
+
+딕셔너리 밸류 최대값 -> max(dic.values())
+최소값 min(dic.value())
+
+밸류 최대값인 key값 구하기.
+key_max = max(Adict.keys(), key = (lambda x : Adict[x]))
+
+리스트의 최대 갯수는 count() 사용하여 구하기.
+
+for i in range(10):
+여기서 아무리 i++를 해도 i값은 변경 안됨.
+while 로 할 것 
+그리고 왜 안되는지 해결책도 찾아보면 좋을듯
+
+string에서 q를 e로 바꾸는 문제 replace('q', 'e')
+
+import sys
+sys.stdin.readline()
+속도 때문에 input()대신 사용하기!!
+
+import sys
+n=input()
+a=[sys.stdin.readline() for i in range(n)]
+print sum(list(map(int,a)))-n+1
+
+한번에 리스트로 받은 다음에 
+map으로 형변환하면 더 빨라짐.
+
+에라토스 테네스의 체 복습해보기. ( 소수 )
+
+대소문자 판별 islower() isupper()
+
+스트링 안에 캐릭터 숫자 세기 count()
+
+## answer[-1:0] 하면 빈 배열에도 오류가 없으며 
+## 리턴값은 [마지막 원소값] -> []안에 있음.
+## answer[-1] 이랑은 다름.

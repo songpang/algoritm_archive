@@ -1,3 +1,8 @@
-a3 = a * (b%10)
-# a4 = a * (b//10%10)
-# a5 = a * (b//100%10)
+a = int(input())
+# if(a%4==0):
+#   if(a%100==0 and a%400!=0):
+#     print('0')
+#   else:
+#     print('1')
+# else:
+#   print('0')
