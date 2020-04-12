@@ -1,8 +1,14 @@
-a = int(input())
-# if(a%4==0):
-#   if(a%100==0 and a%400!=0):
-#     print('0')
-#   else:
-#     print('1')
-# else:
-#   print('0')
+def solution(S):
+#   given_s = list(S)
+#   sizeS = ord(given_s[0])
+  
+#   for i in range(len(S)):
+#     if sizeS > ord(given_s[i]):
+#       given_s.pop(i-1)
+#       break
+#     if (i == len(given_s)-1):
+#       given_s.pop()
+#       break
+#     sizeS = ord(given_s[i])
+
+#   return ''.join(given_s)

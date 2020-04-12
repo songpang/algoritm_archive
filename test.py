@@ -1,6 +1,6 @@
 
-# #   pass
-# # 3번 문제
+#   pass
+# 3번 문제
 # def solution(S):
 #   given_s = list(S)
 #   sizeS = ord(given_s[0])
@@ -16,6 +16,18 @@
 
 #   return ''.join(given_s)
 
+# def solution(S):
+#   firstL = ord(S[0])
+  
+#   for i in range(1, len(S)):
+#     if ord(S[i]) > firstL:
+#       firstL = ord(S[i])
+#     else:
+#       return ''.join(S[0:i-1] + S[i::])
+      
+#   return ''.join(S[0:i])
+
+  # return ''.join(given_s)
 
 # print(solution('aaaa'))
 
