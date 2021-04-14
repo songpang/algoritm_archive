@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Algoritm_archive.iml" filepath="$PROJECT_DIR$/.idea/Algoritm_archive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JAVA_Arc/JAVA_Arc.iml" filepath="$PROJECT_DIR$/JAVA_Arc/JAVA_Arc.iml" />
     </modules>
   </component>
 </project>
