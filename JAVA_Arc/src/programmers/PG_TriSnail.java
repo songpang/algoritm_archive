@@ -1,3 +1,5 @@
+package programmers;
+
 public class PG_TriSnail {
     public static void main(String[] args) {
         solution(6);

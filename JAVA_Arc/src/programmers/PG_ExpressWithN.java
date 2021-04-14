@@ -1,3 +1,5 @@
+package programmers;
+
 public class PG_ExpressWithN {
 
     static int answer = -1;
