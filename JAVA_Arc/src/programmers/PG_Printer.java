@@ -3,7 +3,11 @@ package programmers;
 import java.util.*;
 
 public class PG_Printer {
-    public int solution(int[] priorities, int location) {
+    public static void main(String[] args) {
+        System.out.println(solution(new int[]{1, 1, 9, 1, 1, 1}, 0));
+    }
+
+    public static int solution(int[] priorities, int location) {
         int answer = 0;
 
         Queue<Integer> que = new LinkedList<>();
