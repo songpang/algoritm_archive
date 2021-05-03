@@ -15,3 +15,14 @@
             }
         }
 ```
+
+- 접두사 찾는 방법
+
+```java
+       phone_book[i+1].length() >= phone_book[i].length() && phone_book[i+1].startsWith(phone_book[i])
+       // 위와같이 조건식을 걸었으나
+       //phone_book[i+1].startsWith(phone_book[i]) 로 줄일 수 있음.
+       
+       startWith() 활용 기억해놓기.
+```
+        
