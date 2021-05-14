@@ -1,8 +1,5 @@
 package programmers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PG_TGDTraffic {
 
     public static void main(String[] args) {
