@@ -32,11 +32,8 @@ public class PG_StringCompression {
 
         return answer;
     }
-
     private static String processHit(int count) {
         return count > 1 ? String.valueOf(count) : "";
 
     }
-
-
 }

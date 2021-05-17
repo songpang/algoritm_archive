@@ -45,11 +45,13 @@ public class PG_MenuRenewal {
                     temp += arr[i];
                 }
             }
+
             if (combMap.containsKey(temp)) {
                 combMap.put(temp, combMap.get(temp) + 1);
             } else {
                 combMap.put(temp, 1);
             }
+
             return;
         }
 
