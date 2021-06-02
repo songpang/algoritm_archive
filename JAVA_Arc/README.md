@@ -25,4 +25,11 @@
        
        startWith() 활용 기억해놓기.
 ```
-        
+
+- 반복되는 같은 문자열 찾을 때 
+
+```java
+       String temp = String.format("%10s", "").replace(" ", "G");
+       // 이런식으로 공백을 생성해놓고 G로 replace하면 10개의 연속된 G값 쉽게 얻을 수 있음.
+        System.out.println(temp);
+```
