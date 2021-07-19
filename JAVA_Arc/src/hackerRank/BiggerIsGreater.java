@@ -1,12 +1,6 @@
 package hackerRank;
 
-import java.util.Arrays;
-
 public class BiggerIsGreater {
-    public static void main(String[] args) {
-        System.out.println(biggerIsGreater("a"));
-    }
-
     public static String biggerIsGreater(String w) {
         if(w.length() == 1) {
             return "no answer";
@@ -32,14 +26,8 @@ public class BiggerIsGreater {
                 }
                 break;
             }
-            if(i == 1) {
-                return "no answer";
-            }
         }
         String result = new String(wToChar);
         return result;
     }
-
-    // 94347
-    // 94334
 }
