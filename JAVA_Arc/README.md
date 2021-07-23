@@ -33,3 +33,17 @@
        // 이런식으로 공백을 생성해놓고 G로 replace하면 10개의 연속된 G값 쉽게 얻을 수 있음.
         System.out.println(temp);
 ```
+
+- StringBuilder insert 관련 Issue
+    1)  아래에서 insert 사용 시 remove.pop()을 인자로 사용하면 Error 발생.<br>
+        인자는 int형인데 Integer로 return 되었기 때문. 이를 .intValue()를 사용해서 해결.
+        
+```
+        StringBuilder sb = new StringBuilder();
+        
+        while(!remove.isEmpty()) {
+            sb.insert(remove.pop().intValue(), 'X');
+            //스택에서 반환하는 값이 Integer 니까 intValue 로 뽑아내야함.
+        }
+```
+        
