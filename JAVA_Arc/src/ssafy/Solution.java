@@ -1,6 +1,6 @@
-//Ssafy java2
 package ssafy;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Solution {
@@ -11,14 +11,17 @@ public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int caseCount = Integer.parseInt(scanner.nextLine());
+        int caseCount = scanner.nextInt();
+        scanner.nextLine();
 
         int number = 0;
-        while(caseCount != 0) {
+        while (caseCount != 0) {
             caseCount--;
-            int lineCount = Integer.parseInt(scanner.nextLine());
+            int lineCount = scanner.nextInt();
+            scanner.nextLine();
 
             String[][] testCase2 = new String[lineCount][lineCount];
+
             for (int i = 0; i < lineCount; i++) {
                 testCase2[i] = scanner.nextLine().split(" ");
             }
