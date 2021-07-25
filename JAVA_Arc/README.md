@@ -46,4 +46,21 @@
             //스택에서 반환하는 값이 Integer 니까 intValue 로 뽑아내야함.
         }
 ```
-        
+
+
+- 배열을 길이 순으로 정렬하는 경우
+  1)  Arrays.sort 를 사용하되 파라미터로 들어가는 Comparator 를 재정의<br>
+    그 중 compare 함수를 재정의 해야 하는데 <br/>
+      아래와 같이 재정의 하면 길이 순으로 정렬 할 수 있음
+  2) return 값 (간단하게 생각하고 재정의 하면 된다.)
+    - 양수 s1 > s2.
+    - 같으면 s1 = s2
+    - 작으면 s1 < s2
+```
+        Arrays.sort(s2Arr, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.length() - s2.length();
+            }
+        });
+```
