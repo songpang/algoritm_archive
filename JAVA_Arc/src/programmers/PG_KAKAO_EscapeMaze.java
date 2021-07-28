@@ -78,7 +78,7 @@ public class PG_KAKAO_EscapeMaze {
                 // linked에 있는 애들을 next로 만들기.
                 // 그리고 length를 추가하기.
 
-                nodes.get(n).linked
+//                nodes.get(n).linked
             }
         }
 

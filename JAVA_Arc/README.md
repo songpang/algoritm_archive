@@ -38,7 +38,7 @@
     1)  아래에서 insert 사용 시 remove.pop()을 인자로 사용하면 Error 발생.<br>
         인자는 int형인데 Integer로 return 되었기 때문. 이를 .intValue()를 사용해서 해결.
         
-```
+```java
         StringBuilder sb = new StringBuilder();
         
         while(!remove.isEmpty()) {
@@ -56,7 +56,7 @@
     - 양수 s1 > s2.
     - 같으면 s1 = s2
     - 작으면 s1 < s2
-```
+```java
         Arrays.sort(s2Arr, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
