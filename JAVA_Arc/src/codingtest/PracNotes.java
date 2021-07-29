@@ -2,12 +2,23 @@ package codingtest;
 
 public class PracNotes {
     public static void main(String[] args) {
-        int k = 4;
-        char s = '3';
+        int space = 4;
+        char start = 'A';
+        int count = 1;
 
-        System.out.println(s-'0');
-        if((k - Character.getNumericValue(s) < 0)) {
-            System.out.println("Hello");
+        while (space != 0) {
+            for (int i = 0; i < space; i++) {
+                System.out.print("  ");
+            }
+
+            for (int i = 0; i < count; i++) {
+                System.out.print(start++ + " ");
+            }
+
+            System.out.println();
+            count+= 2;
+            space--;
+
         }
     }
 }

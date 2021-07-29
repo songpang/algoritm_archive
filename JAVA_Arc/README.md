@@ -64,3 +64,26 @@
             }
         });
 ```
+
+- LCS(Longest Common Subsequence)
+  1)  두 A,B의 최대 공통 부분집합을 찾는 알고리즘.
+  - HackerRank CommonChild
+```java
+
+    static int commonChild(String S, String T) {
+        int LArr[][] = new int[S.length() + 1][T.length() + 1];
+
+        for (int i = 0; i <= S.length(); i++) {
+            for (int j = 0; j <= T.length(); j++) {
+                if (i == 0 || j == 0)
+                    LArr[i][j] = 0;
+                else if (S.charAt(i - 1) == T.charAt(j - 1)) {
+                    LArr[i][j] = LArr[i - 1][j - 1] + 1;
+                } else {
+                    LArr[i][j] = Math.max(LArr[i - 1][j], LArr[i][j - 1]);
+                }
+            }
+        }
+        return LArr[S.length()][T.length()];
+    }
+```
