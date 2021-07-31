@@ -1,8 +1,12 @@
 package codingtest;
 
-import java.util.*;
-
-public class PracNotes {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
+/*
+zum CT
+ */
+public class ZUM_1 {
     public static void main(String[] args) {
         int[] test = solution(new int[][]{{1, 0, 5}, {2, 2, 2}, {3, 3, 1}, {4, 4, 1}, {5, 10, 2}});
         int[] test1 = solution(new int[][]{{1, 0, 3}, {2, 1, 3}, {3, 3, 2}, {4, 9, 1}, {5, 10, 2}});
@@ -14,15 +18,15 @@ public class PracNotes {
     }
 
     public static int[] solution(int[][] data) {
-        PriorityQueue<PaperQ> pq = new PriorityQueue<>();
+        PriorityQueue<PracNotes.PaperQ> pq = new PriorityQueue<>();
         List<Integer> answer = new ArrayList<>();
 
-        pq.add(new PaperQ(data[0][0], data[0][1], data[0][2]));
+        pq.add(new PracNotes.PaperQ(data[0][0], data[0][1], data[0][2]));
         int flag = 1;
         int time = data[0][1];
 
         while(!pq.isEmpty()) {
-            PaperQ temp = pq.poll();
+            PracNotes.PaperQ temp = pq.poll();
             time += temp.pages;
             answer.add(temp.number);
 
@@ -30,21 +34,21 @@ public class PracNotes {
                 for (int j = flag; j < data.length; j++) {
                     if (data[j][1] <= time) {
                         flag++;
-                        pq.add(new PaperQ(data[j][0], data[j][1], data[j][2]));
+                        pq.add(new PracNotes.PaperQ(data[j][0], data[j][1], data[j][2]));
                         continue;
                     }
                     break;
                 }
                 if(pq.isEmpty()) {
                     time = data[flag][1];
-                    pq.add(new PaperQ(data[flag][0], data[flag][1], data[flag++][2]));
+                    pq.add(new PracNotes.PaperQ(data[flag][0], data[flag][1], data[flag++][2]));
                 }
             }
         }
         return answer.stream().mapToInt(i -> i).toArray();
     }
 
-    public static class PaperQ implements Comparable<PaperQ>{
+    public static class PaperQ implements Comparable<PracNotes.PaperQ>{
         int number;
         int time;
         int pages;
@@ -56,7 +60,7 @@ public class PracNotes {
         }
 
         @Override
-        public int compareTo(PaperQ paperQ) {
+        public int compareTo(PracNotes.PaperQ paperQ) {
             if (this.pages > paperQ.pages)
                 return 1;
             else if (this.pages < paperQ.pages)
@@ -68,8 +72,4 @@ public class PracNotes {
             return 0;
         }
     }
-//        //대기 중 큐 -> 페이지 수 기준 정렬 -> 우선 순위 기준 정렬
-//        PriorityQueue<Document> priorityQueue = new PriorityQueue<>(
-//                Comparator.comparing(Document::getPage).thenComparing(Document::getRequestTime));
-
 }
