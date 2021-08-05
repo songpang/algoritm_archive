@@ -6,6 +6,8 @@ public class LC_ContainerWithMostWater {
         int temp = maxArea(new int[]{10, 9, 1, 1, 1, 1, 5, 2});
         System.out.println(temp);
     }
+
+    //투포인터로 성능 대폭 개선.
     public static int maxArea(int[] height) {
         int left = 0;
         int right = height.length - 1;
