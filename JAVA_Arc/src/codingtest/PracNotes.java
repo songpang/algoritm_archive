@@ -8,6 +8,8 @@ public class PracNotes {
     static boolean[] visited;
 
     public static void main(String[] args) {
-
+        String name = ",..,";
+        name = name.replace(",", " he").replace(".", "hi");
+        System.out.println(name);
     }
 }
