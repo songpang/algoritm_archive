@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PracNotes {
-    static int[] num = {5, 8, 3, 4, 1};
-    static boolean[] visited;
+    static int[] input;
+    static int N, count;
+    static boolean[] isSelected;
 
+    //부분집합
     public static void main(String[] args) {
-        String name = ",..,";
-        name = name.replace(",", " he").replace(".", "hi");
-        System.out.println(name);
+        int a = 1;
+        int b = 1;
+        System.out.println(a == b);
     }
+
 }
