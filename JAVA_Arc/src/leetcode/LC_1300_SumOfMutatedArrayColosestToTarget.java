@@ -3,21 +3,62 @@ package leetcode;
 import java.util.Arrays;
 
 public class LC_1300_SumOfMutatedArrayColosestToTarget {
-    public int findBestValue(int[] A, int target) {
-        Arrays.sort(A);
-        int n = A.length, i = 0;
+    public static void main(String[] args) {
+        int temp = findBestValue(new int[]{1547,83230,57084,93444,70879}, 71237);
+        System.out.println(temp);
+    }
 
-        while (i < n && target > A[i] * (n - i)) {
-            target -= A[i++];
+    public static int findBestValue(int[] arr, int target) {
+        Arrays.sort(arr);
+
+        int sum = Arrays.stream(arr).sum();
+        int diff = Math.abs(sum - target);
+        int result = (int) Math.round((double) target / (double) arr.length);
+        if (sum <= target) {
+            return arr[arr.length - 1];
+        } else {
+            for (int j = arr.length - 2; j >= 0; j--) {
+                int temp = arr[j];
+                for (int i = j; i < arr.length; i++) {
+                    sum -= (arr[i] - temp);
+                    arr[i] = temp;
+                }
+
+                double count = 0;
+                if (diff >= Math.abs(sum - target)) {
+                    diff = Math.abs(sum - target);
+                    if (arr[j] < result) {
+                        int tempSum = 0;
+                        for (int t = 0; t <= j; t++) {
+                            tempSum += arr[t];
+                        }
+                        target -= tempSum;
+                        count = (double) target / (double) (arr.length - (j + 1));
+                        if(count - Math.round(count) == -0.5) {
+                            count = count - 0.5;
+                        } else {
+                            count = Math.round(count);
+                        }
+                        return (int) count;
+                    }
+                } else {
+                    // 0 ~ j-1
+                    int tempSum = 0;
+                    for (int t = 0; t <= j; t++) {
+                        tempSum += arr[t];
+                    }
+                    target -= tempSum;
+                    count = (double) target / (double) (arr.length - (j + 1));
+                    if(count - Math.round(count) == 0.5) {
+                        count = count - 0.5;
+                    } else {
+                        count = Math.round(count);
+                    }
+                    return (int) count;
+                }
+            }
+
+            return result;
         }
-
-        if (i == n)
-            return A[n - 1];
-
-        int res = target / (n - i);
-        if (target - res * (n - i) > (res + 1) * (n - i) - target)
-            res++;
-
-        return res;
     }
 }

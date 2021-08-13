@@ -1,38 +1,67 @@
 package codingtest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import backjoon.BJ_17135;
+
+import java.util.*;
 
 public class PracNotes {
     static List<int[]> result = new ArrayList<>();
 
     public static void main(String[] args) {
-        boolean[] visited = new boolean[3];
-        permutation(new int[3], visited, 0, 3);
-        for (int[] ints : result) {
-            for (int anInt : ints) {
-                System.out.print(anInt);
+        List<Point> test = new ArrayList<>();
+        Set<Point> test1 = new HashSet<>();
+
+        test.add(new Point(1, 2));
+        test.add(new Point(2, 3));
+        test.add(new Point(1, 4));
+        test.add(new Point(1, 5));
+        test.add(new Point(2, 2));
+        test.add(new Point(1, 3));
+
+
+        for (Point point : test) {
+            if(point.x == 2) {
+                test1.add(point);
             }
-            System.out.println();
+        }
+
+        for (Point point : test1) {
+            test.remove(point);
+        }
+
+        for (Point point : test) {
+            System.out.println(point);
         }
     }
 
-    static void permutation(int[] output, boolean[] visited, int depth, int r) {
-        if (depth == r) {
-            result.add(output.clone());
-            return;
+    static class Point {
+        int x;
+        int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
         }
 
-        for (int i = 0; i < visited.length; i++) {
-            if (!visited[i]) {
-                visited[i] = true;
-                output[depth] = i;
-                permutation(output, visited, depth + 1, r);
-                output[depth] = 0;
-                visited[i] = false;
-            }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Point point = (Point) o;
+            return x == point.x && y == point.y;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(x, y);
+        }
+
+        @Override
+        public String toString() {
+            return "Point{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
         }
     }
-
 }
