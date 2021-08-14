@@ -1,4 +1,4 @@
-package codingtest;
+package codingtest.Kakao;
 
 public class Kakao_1 {
     public static void main(String[] args) {

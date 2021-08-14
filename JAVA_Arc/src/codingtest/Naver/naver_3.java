@@ -1,4 +1,4 @@
-package codingtest;
+package codingtest.Naver;
 
 public class naver_3 {
     static int MAX_SONG = 1;

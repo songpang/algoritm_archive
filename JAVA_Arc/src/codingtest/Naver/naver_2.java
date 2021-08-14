@@ -1,4 +1,4 @@
-package codingtest;
+package codingtest.Naver;
 
 import java.util.Stack;
 
