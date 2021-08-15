@@ -3,9 +3,12 @@ package codingtest.Toss;
 import java.util.StringTokenizer;
 
 public class Toss4 {
+    // NEXT SHOW NEGATIVE EXIT 나올 때 M일 N회 까지 알림 가능
+    // 사용자가 negative하면 M일 후에 가능
+    // M일 안에 N번 다쓰면 M일 후에 가능.
+
     public static void main(String[] args) {
         solution("2 3\nSHOW\nSHOW\nNEXT\nSHOW\nSHOW\nNEXT\nSHOW\nNEXT\nSHOW\nSHOW\nNEXT\nSHOW\nEXIT");
-
     }
 
     public static String solution(String input) {
@@ -20,6 +23,18 @@ public class Toss4 {
         String next = "";
         int mCount = M;
         int nCount = N;
+
+        while(st.hasMoreTokens()) {
+            if(nCount == 0) {
+                mCount--;
+            }
+
+
+
+
+
+
+        }
 
         while(st.hasMoreTokens()) {
             next = st.nextToken();
