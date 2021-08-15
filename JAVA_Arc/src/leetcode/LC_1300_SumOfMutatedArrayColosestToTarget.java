@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class LC_1300_SumOfMutatedArrayColosestToTarget {
     public static void main(String[] args) {
-        int temp = findBestValue(new int[]{1547,83230,57084,93444,70879}, 71237);
+        int temp = findBestValue(new int[]{2, 2}, 3);
         System.out.println(temp);
     }
 
@@ -13,7 +13,14 @@ public class LC_1300_SumOfMutatedArrayColosestToTarget {
 
         int sum = Arrays.stream(arr).sum();
         int diff = Math.abs(sum - target);
-        int result = (int) Math.round((double) target / (double) arr.length);
+        double calTemp = (double) target / (double) arr.length;
+
+        if(calTemp - Math.round(calTemp) == -0.5) {
+            calTemp = calTemp - 0.5;
+        } else {
+            calTemp = Math.round(calTemp);
+        }
+        int result = (int) calTemp;
         if (sum <= target) {
             return arr[arr.length - 1];
         } else {

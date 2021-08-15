@@ -18,7 +18,7 @@ public class Toss4 {
         sb.append(userInput).append("\n");
 
         String next = "";
-        int mCount = M + 1;
+        int mCount = M;
         int nCount = N;
 
         while(st.hasMoreTokens()) {
@@ -34,9 +34,6 @@ public class Toss4 {
             } else if (next.equals("EXIT")) {
                 sb.append("BYE");
             } else if (next.equals("NEXT")) {
-                if(mCount == 0) {
-                    nCount = N;
-                }
                 mCount--;
                 sb.append("-");
                 sb.append("\n");
@@ -50,7 +47,12 @@ public class Toss4 {
                 mCount = M;
                 nCount = N;
             }
+
+            // M일동안 N번쓰면 그 때 부터 M일 추가
+            // Next하면 M일 - 1
+            //
         }
+
 
         System.out.println(sb.toString());
         return sb.toString();
