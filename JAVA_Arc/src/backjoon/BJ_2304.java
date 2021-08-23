@@ -9,7 +9,6 @@ import java.util.Comparator;
 public class BJ_2304 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         int N = Integer.parseInt(br.readLine());
         int[][] pillar = new int[N][2];
 
@@ -53,7 +52,9 @@ public class BJ_2304 {
                 break;
             }
         }
-
+        if(max == pillar[0][1]) {
+            i = 0;
+        }
         sum += max;
         int temp = pillar[i][0] + 1;
         int j = ++i;
