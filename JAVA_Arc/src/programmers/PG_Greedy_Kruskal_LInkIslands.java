@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 // kruskal 알고리즘 ( + union-find 알고리즘) 기본 문제
 // 섬 연결하기
-public class PG_Greedy_LInkIslands {
+public class PG_Greedy_Kruskal_LInkIslands {
     public static void main(String[] args) {
         solution(4, new int[][]{{0, 1, 1}, {0, 2, 2}, {1, 2, 5}, {1, 3, 1}, {2, 3, 8}});
     }

@@ -3,15 +3,13 @@ package backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class BJ_14502 {
     static int N, M, max;
     static int[][] map;
     static List<Point> zeroLocation = new ArrayList<>();
-    static List<Point> virusLocation = new ArrayList<>();
+    static Queue<Point> virusLocation = new LinkedList<>();
     static int[][] DIR = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
     public static void main(String[] args) throws IOException {
@@ -49,10 +47,8 @@ public class BJ_14502 {
             for (Point point : points) {
                 mapClone[point.x][point.y] = 1;
             }
-
-            for (Point point : virusLocation) {
-                spreadVirus(point, mapClone);
-            }
+            Queue<Point> vrClone = new LinkedList<>(virusLocation);
+            spreadVirus(vrClone, mapClone);
 
             int zeroCount = 0;
             for (int[] ints : mapClone) {
@@ -83,25 +79,18 @@ public class BJ_14502 {
         }
     }
 
-    public static void spreadVirus(Point virus, int[][] map) {
-        if (!(virus.x >= 0 && virus.y >= 0 && virus.x < N && virus.y < M && map[virus.x][virus.y] != 1)) {
-            return;
-        }
-
-        map[virus.x][virus.y] = 2;
-
-        int nx, ny;
-        for (int i = 0; i < 4; i++) {
-            nx = virus.x + DIR[i][0];
-            ny = virus.y + DIR[i][1];
-            if(nx >= 0 && ny >= 0 && nx < N && ny < M && map[nx][ny] == 2) {
+    public static void spreadVirus(Queue<Point> vrClone, int[][] mapClone) {
+        while (!vrClone.isEmpty()) {
+            Point virus = vrClone.poll();
+            int nx, ny;
+            for (int i = 0; i < 4; i++) {
                 nx = virus.x + DIR[i][0];
                 ny = virus.y + DIR[i][1];
-                spreadVirus(new Point(nx, ny), map);
-                return;
+                if (nx >= 0 && ny >= 0 && nx < N && ny < M && mapClone[nx][ny] == 0) {
+                    mapClone[nx][ny] = 2;
+                    vrClone.add(new Point(nx, ny));
+                }
             }
-
-            spreadVirus(new Point(nx, ny), map);
         }
         // 첫 바이러스에서 사방향으로 감
         // 그 사뱡향에서 또 사방향으로 감
