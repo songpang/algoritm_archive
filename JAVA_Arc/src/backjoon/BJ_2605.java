@@ -16,6 +16,7 @@ public class BJ_2605 {
         st.nextToken();
         List<Integer> sequence = new ArrayList<>();
         sequence.add(1);
+
         int temp;
         for (int i = 2; i <= N; i++) {
             temp = Integer.parseInt(st.nextToken());
