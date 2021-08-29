@@ -6,8 +6,11 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+// 백준 10423 전기가 부족해
+// 전형적인 MST이지만 조건이 있음
+// 속도 -> 느림
+//
 public class BJ_10423_MST_mutated {
-
     static class Edge implements Comparable<Edge> {
         int u;
         int v;

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class BJ_16236 {
+public class BJ_16236_DBFS {
     static class Point {
         int r;
         int c;
