@@ -1,49 +1,39 @@
 package programmers;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 public class PG_StringCompression {
+    public static void main(String[] args) {
+        System.out.println(solution("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxz"));
+    }
+
     // 다시 풀어보기
     public static int solution(String s) {
-        int answer = s.length();
+        if(s.length() == 1 ) return 1;
 
-        for (int i = 1; i <= s.length() / 2; i++) {
-            String convert = "", temp;
-
+        int answer = 1001;
+        for (int i = 1; i < s.length() / 2; i++) {
+            String now = "", next = "", result = "";
             int count = 1;
-            temp = s.substring(0, i);
+            for (int j = 0; j <= s.length() / i; j++) {
+                int start = j * i;
+                int end = i * (j + 1) > s.length() ? s.length() : i * (j + 1);
+                now = next;
+                next = s.substring(start, end);
 
-            for (int j = i; j < s.length(); j += i) {
-                String sSub = s.substring(j, j + i);
-
-                if (temp.equals(sSub)) count++;
-                else {
-                    if (count > 1) convert += String.valueOf(count);
-                    convert += temp;
-                    temp = sSub;
-                    if(j + 2 * i > s.length()) {
-                        temp = s.substring(j);
-                        count = 1;
-                        break;
-                    }
+                if(now.equals(next)) {
+                    count++;
+                } else {
+                    result += (processHit(count) + now);
                     count = 1;
                 }
             }
-
-            if (count > 1) convert += String.valueOf(count);
-            convert += temp;
-            answer = Math.min(answer, convert.length());
+            result += processHit(count) + now;
+            answer = Math.min(answer, result.length());
         }
+
         return answer;
     }
+    private static String processHit(int count) {
+        return count > 1 ? String.valueOf(count) : "";
 
-    @Test
-    public void 정답() {
-        Assertions.assertEquals(7, solution("aabbaccc"));
-        Assertions.assertEquals(9, solution("ababcdcdababcdcd"));
-        Assertions.assertEquals(8, solution("abcabcdede"));
-        Assertions.assertEquals(14, solution("abcabcabcabcdededededede"));
-        Assertions.assertEquals(17, solution("xababcdcdababcdcd"));
     }
 }
