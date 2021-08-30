@@ -45,6 +45,10 @@ public class BJ_16236_DBFS {
             }
         }
 
+        if(fish.size() == 0) {
+            System.out.println(0);
+            return;
+        }
 
         Point closeFish = fish.get(0);
         int time = 0;
@@ -59,19 +63,20 @@ public class BJ_16236_DBFS {
                     continue;
                 }
 
-                if (min > getDistance(shark, point)) {
-                    min = getDistance(shark, point);
+                int distance = getDistance(shark, point);
+                if (min > distance) {
+                    min = distance;
                     closeFish = point;
-                } else if (min == getDistance(shark, point)) {
+                } else if (min == distance) {
                     // 가장 위에 있는 물고기, 왼쪽
                     if (closeFish.r == point.r) {
                         if (closeFish.c > point.c) {
                             closeFish = point;
-                            min = getDistance(shark, point);
+                            min = distance;
                         }
                     } else if (closeFish.r > point.r) {
                         closeFish = point;
-                        min = getDistance(shark, point);
+                        min = distance;
                     }
                 }
             }
@@ -97,33 +102,64 @@ public class BJ_16236_DBFS {
 
     public static int getDistance(Point shark, Point fish) {
         minDistance = Integer.MAX_VALUE;
-        dfs(fish.r, fish.c, 0, shark, new boolean[N][N]);
+        bfs(fish.r, fish.c, shark, new boolean[N][N]);
 
         return minDistance;
     }
 
-    public static void dfs(int r, int c, int distance, Point shark, boolean[][] visited) {
-        if (r == shark.r && c == shark.c) {
-            minDistance = Math.min(minDistance, distance);
-            return;
-        }
+    public static void bfs(int r, int c, Point shark, boolean[][] visited) {
+        Queue<Point> pQ = new LinkedList<>();
+        pQ.offer(new Point(r, c, aquarium[r][c]));
+        visited[r][c] = true;
 
-        if (aquarium[r][c] > shark.size) {
-            return;
-        }
+        int count = 0;
+        while(!pQ.isEmpty()) {
+            Point temp = pQ.poll();
 
-        for (int i = 0; i < 4; i++) {
-            int nextR = r + DIR[i][0];
-            int nextC = c + DIR[i][1];
+            for (int i = 0; i < 4; i++) {
+                int nextR = temp.r + DIR[i][0];
+                int nextC = temp.c + DIR[i][1];
 
-            if (nextR >= 0 && nextC >= 0 && nextR < N && nextC < N
-                    && !visited[nextR][nextC]) {
-                visited[nextR][nextC] = true;
-                dfs(nextR, nextC, distance + 1, shark, visited);
-                visited[nextR][nextC] = false;
+                if (nextR >= 0 && nextC >= 0 && nextR < N && nextC < N
+                        && !visited[nextR][nextC] && aquarium[nextR][nextC] <= shark.size) {
+
+                    if(shark.r == nextR && shark.c == nextC) {
+                        minDistance = Math.min(minDistance, count);
+                        return;
+                    }
+
+                    visited[nextR][nextC] = true;
+                    pQ.offer(new Point(nextR, nextC, aquarium[nextR][nextC]));
+                }
             }
+            count++;
         }
+
     }
+
+    // 시간초과 DFS
+//    public static void dfs(int r, int c, int distance, Point shark, boolean[][] visited) {
+//        if (r == shark.r && c == shark.c) {
+//            minDistance = Math.min(minDistance, distance);
+//            return;
+//        }
+//
+//        if (aquarium[r][c] > shark.size) {
+//            return;
+//        }
+//
+//        for (int i = 0; i < 4; i++) {
+//            int nextR = r + DIR[i][0];
+//            int nextC = c + DIR[i][1];
+//
+//            if (nextR >= 0 && nextC >= 0 && nextR < N && nextC < N
+//                    && !visited[nextR][nextC]) {
+//                visited[nextR][nextC] = true;
+//                dfs(nextR, nextC, distance + 1, shark, visited);
+//                visited[nextR][nextC] = false;
+//            }
+//        }
+//    }
 }
 
 
