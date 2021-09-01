@@ -41,7 +41,6 @@ public class Toss5 {
         }
 
         Arrays.sort(answer, Collections.reverseOrder());
-        int[] realAnswer = Arrays.stream(answer).mapToInt(Integer::intValue).toArray();
-        return realAnswer;
+        return Arrays.stream(answer).mapToInt(Integer::intValue).toArray();
     }
 }

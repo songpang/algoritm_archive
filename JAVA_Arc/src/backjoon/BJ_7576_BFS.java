@@ -5,7 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class BJ_7576 {
+// 백준 7576 토마토
+// 전형적인 BFS + 조건 1개.
+// 퍼지는 바이러스 유형.
+
+public class BJ_7576_BFS {
     static class Point {
         int x;
         int y;
