@@ -95,8 +95,6 @@ public class BJ_1062_SetCombination {
         for (int i = start; i < alphabet.length; i++) {
             output[count] = alphabet[i];
             combination(count + 1, i + 1, output);
-            output[count] = ' ';
         }
     }
-
 }

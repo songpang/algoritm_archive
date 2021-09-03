@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
 // 아예 Q에 찬 값들을 다 소비해버리고 count++하는 방식으로 바꾸니 15% 빨라짐.
 // visited 배열 없애고 그냥 원본 배열 값을 0으로 바꿔버리니 5%정도 더 개선.
 
-public class BJ_2178 {
+public class BJ_2178_BFS {
     static int N, M;
 
     public static void main(String[] args) throws IOException {

@@ -19,6 +19,9 @@ public class BJ_1062_BitMasking {
             alphabet |= (1 << (init.charAt(i) - 'a'));
         }
 
+        //  1 0 1 1 1 0 0 1 0 0 01
+        //  1 0 1 0 0 ( 1 << i )
+
         words = new int[n];
         for (int i = 0; i < n; i++) {
             String s = br.readLine();
@@ -54,10 +57,9 @@ public class BJ_1062_BitMasking {
         if (depth == k) {
 
             int count = 0;
-            int test = bit;
             for (int word : words) {
-                int check = (test | word);
-                if (check == test) {
+                int check = (bit | word);
+                if (check == bit) {
                     count++;
                 }
             }
