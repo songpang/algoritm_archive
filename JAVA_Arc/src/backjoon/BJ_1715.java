@@ -27,6 +27,4 @@ public class BJ_1715 {
 
         System.out.println(sum);
     }
-
-
 }
