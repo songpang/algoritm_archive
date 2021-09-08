@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 // 백준 유진수 1356
 // 스트링 단순 구현
 
-public class BJ_1356 {
+public class BJ_1356_String {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
