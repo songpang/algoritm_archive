@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SWE_1247 {
+public class SWEA_1247 {
     static int N;
     static boolean[] visited;
     static int[] location;

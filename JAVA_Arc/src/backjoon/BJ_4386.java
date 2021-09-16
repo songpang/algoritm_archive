@@ -1,3 +1,5 @@
+// 언어 : JAVA , 메모리 : 14748 KB , 시간 : 140 ms
+
 package backjoon;
 
 import java.io.BufferedReader;
@@ -46,6 +48,7 @@ public class BJ_4386 {
 
         int n = Integer.parseInt(br.readLine());
         Point[] points = new Point[n];
+        // 인접한 놈들 리스트
         List<Adjacent> ads = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
@@ -62,6 +65,7 @@ public class BJ_4386 {
 
         Collections.sort(ads);
 
+        // 자기 자신의 끝 부모 설정
         int[] parent = new int[n];
         for (int i = 0; i < n; i++) {
             parent[i] = i;
@@ -72,6 +76,7 @@ public class BJ_4386 {
         for (int i = 0; i < adsSize; i++) {
             Adjacent temp = ads.get(i);
 
+            // a와 b의 부모가 같지 않다면 서로 다른 그래프에 속하므로 union을 해줘야함
             if(!findParent(parent, temp.a.i, temp.b.i)) {
                 unionParent(parent, temp.a.i, temp.b.i);
                 sum += temp.distance;
@@ -82,6 +87,7 @@ public class BJ_4386 {
 
     }
 
+    // 아래부터는 평범한 union-find를 위한 메서드!
     public static int getParent(int[] parent, int x) {
         if (parent[x] == x) return x;
         return parent[x] = getParent(parent, parent[x]);

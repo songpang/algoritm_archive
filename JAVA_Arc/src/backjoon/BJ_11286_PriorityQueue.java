@@ -1,3 +1,5 @@
+// 언어 : JAVA , 메모리 : 24704 KB , 시간 : 344 ms
+
 package backjoon;
 
 import java.io.BufferedReader;
