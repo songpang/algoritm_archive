@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class SWEA_1767 {
+public class SWEA_1767_DFS {
     static class Point {
         int x;
         int y;
@@ -73,6 +73,7 @@ public class SWEA_1767 {
             return;
         }
 
+        // 이 조건 넣어주니 시간초과 해결.
         if(wholeCore - count + success < maxSuccess) {
             return;
         }
