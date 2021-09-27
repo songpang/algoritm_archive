@@ -47,6 +47,7 @@ public class Dijkstra {
                     current = j;
                 }
             }
+
             visited[current] = true; // 선택 정점 방문 처리
             if (current == end) { // 선택 정점이 도착정점이면 탈출.
                 break;
@@ -62,5 +63,15 @@ public class Dijkstra {
         }
         System.out.println(distance[end]);
 
+
+        int a, b;
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+
+                if(!visited[j] && distance[j] < min) {
+
+                }
+            }
+        }
     }
 }
