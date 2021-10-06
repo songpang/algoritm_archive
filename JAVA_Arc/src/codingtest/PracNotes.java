@@ -1,36 +1,54 @@
 package codingtest;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class PracNotes {
-    static List<int[]> result = new ArrayList<>();
+    @Test
+    public void test() {
+//        Assertions.assertEquals(2, solution(41));
+//        Assertions.assertEquals(2, solution(40));
+//        Assertions.assertEquals(2, solution(39));
+        Assertions.assertEquals(4, solution(244));
+        // 25 25 1
+        //
+//        Assertions.assertEquals(2, solution(37));
 
-    public static void main(String[] args) {
-        int n = 10;
-        for (int i = 1; i < 5; i++) {
-            permutation(0, i, new int[n], new boolean[n]);
-        }
     }
 
-    public static void permutation(int count, int n, int[] output, boolean[] visited) {
-        if(count == n) {
-            for (int i = 0; i < n; i++) {
-                System.out.print(output[i]);
-            }
-            System.out.println();
+    public int solution(int n) {
+        int answer = 0;
+
+        int high = 1;
+        int pow = high * high;
+        while(pow <= n) {
+            high++;
+            pow = high * high;
         }
 
-        for (int i = 0; i < 10; i++) {
-            if(!visited[i]) {
-                visited[i] = true;
-                output[count] = i;
-                permutation(count + 1, n, output, visited);
-                visited[i] = false;
+        high--;
+        int min = Integer.MAX_VALUE;
 
+        for (int i = high; i >= 1 ; i--) {
+            int rest = n;
+            int temp = i;
+            answer = 0;
+            while (rest != 0) {
+                pow = temp * temp;
+                if (rest - pow > 0) {
+                    rest -= pow;
+                    answer++;
+                } else if (rest == pow) {
+                    answer++;
+                    break;
+                } else {
+                    temp--;
+                }
             }
+
+            min = Math.min(min, answer);
         }
+
+        return min;
     }
-
-
 }
