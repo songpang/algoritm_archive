@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-
 // 백준 2074번 N번째 큰수
 // 간단한 우선순위 큐 문제
 public class BJ_2075_PriorityQueue {
