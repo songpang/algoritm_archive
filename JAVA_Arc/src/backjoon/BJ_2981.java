@@ -58,10 +58,11 @@ public class BJ_2981 {
 
     public static int gcd(int a, int b) {
         while (b != 0) {
-            int r = a % b;
+            int mod = a % b;
             a = b;
-            b = r;
+            b = mod;
         }
+
         return a;
     }
 }
