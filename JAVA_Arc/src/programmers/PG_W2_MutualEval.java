@@ -19,10 +19,8 @@ public class PG_W2_MutualEval {
             double avg;
             int max = -1;
             int min = Integer.MAX_VALUE;
-            int maxCount = 0;
-            int minCount = 0;
-            // 유일한 최고점, 최저점
-            //
+            int maxCount = 1;
+            int minCount = 1;
 
             for(int j = 0; j < studentSize; j++) {
                 if(i == j) {
@@ -33,30 +31,33 @@ public class PG_W2_MutualEval {
 
                 if(max == scores[j][i]) {
                     maxCount++;
+                } else if (max < scores[j][i]) {
+                    max = scores[j][i];
+                    maxCount = 1;
                 }
 
                 if(min == scores[j][i]) {
                     minCount++;
+                } else if (min > scores[j][i]) {
+                    min = scores[j][i];
+                    minCount = 1;
                 }
-                max = Math.max(max, scores[j][i]);
-                min = Math.min(min, scores[j][i]);
             }
 
-            if(!(myself > max || myself < min)) {
-                sum += myself;
-                avg = sum / (studentSize);
-            } else {
-                if(myself == max && maxCount == 1) {
-                    avg = sum / (studentSize - 1);
-                    continue;
-                }
-                if(myself == min && minCount == 1) {
-                    avg = sum / (studentSize - 1);
-                    continue;
-                }
-                sum += myself;
-                avg = sum / (studentSize);
+            if(myself == max && maxCount == 1) {
+                avg = sum / (studentSize - 1);
+                psQ.add(new Student(i, avg));
+                continue;
             }
+
+            if(myself == min && minCount == 1) {
+                avg = sum / (studentSize - 1);
+                psQ.add(new Student(i, avg));
+                continue;
+            }
+
+            sum += myself;
+            avg = sum / (studentSize);
 
             psQ.add(new Student(i, avg));
         }
